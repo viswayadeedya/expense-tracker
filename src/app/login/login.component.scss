@@ -1,0 +1,28 @@
+.center {
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // text-align: center;
+  min-height: 80vh;
+}
+
+.nav-home {
+  border: 1px solid #3f3f46;
+  background: #18181b;
+}
+
+p-iftalabel input {
+  width: 100%;
+}
+
+::ng-deep{
+  .password{
+    div{
+      width: 100%;
+    }
+    div input{
+      width: 100%;
+    }
+  }
+}

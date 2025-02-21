@@ -1,0 +1,51 @@
+<p-dialog
+  header="Add Expense"
+  [modal]="true"
+  #dialog
+  [visible]="showAddExpenseModal"
+  [closable]="false"
+  [style]="{ width: '40rem' }"
+>
+  <div class="grid p-4">
+    <p-iftalabel class="p-0 pb-4 pr-2 col-6">
+      <input
+        pInputText
+        class="input-width"
+        [(ngModel)]="category"
+        autocomplete="off"
+      />
+      <label for="Category">Category</label>
+    </p-iftalabel>
+
+    <p-iftalabel class="p-0 pb-4 col-6">
+      <p-inputnumber
+        [(ngModel)]="amount"
+        class="w-full"
+        inputId="currency-us"
+        mode="currency"
+        currency="USD"
+        locale="en-US"
+      />
+      <label for="amount">Amount</label>
+    </p-iftalabel>
+
+    <p-iftalabel class="p-0 pb-4 pr-2 col-6">
+      <input
+        pInputText
+        class="input-width"
+        [(ngModel)]="description"
+        autocomplete="off"
+      />
+      <label for="description">Description</label>
+    </p-iftalabel>
+
+    <p-iftalabel class="p-0 pb-4 col-6">
+      <p-datepicker styleClass="w-full" [(ngModel)]="date" appendTo="body" />
+      <label for="date">Date</label>
+    </p-iftalabel>
+  </div>
+  <div class="flex flex-row-reverse">
+    <p-button class="px-3" label="Cancel" (onClick)="closeDialog()" />
+    <p-button label="Save" (onClick)="saveExpense()" />
+  </div>
+</p-dialog>

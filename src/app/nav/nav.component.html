@@ -1,0 +1,30 @@
+<div class="pb-4" *ngIf="userLogginIn; else home">
+  <div class="card">
+    <p-menubar [model]="items">
+      <ng-template #start>
+        <p class="icon-bg p-0">Expense Tracker</p>
+      </ng-template>
+      <ng-template #item let-item let-root="root">
+        <a
+          pRipple
+          (click)="openAddExpenseDialog()"
+          class="flex items-center p-menubar-item-link"
+        >
+          <span>{{ item.label }}</span>
+          <span class="icon-bg" [class]="item.icon"></span>
+        </a>
+      </ng-template>
+      <ng-template #end>
+        <div class="card flex justify-center">
+          <p-menu #menu [model]="profileItems" [popup]="true" />
+          <p-button (click)="menu.toggle($event)" icon="pi pi-user" />
+        </div>
+      </ng-template>
+    </p-menubar>
+  </div>
+</div>
+<ng-template #home>
+  <div class="nav-home flex justify-content-center flex-wrap">
+    <h2>Expense Tracker</h2>
+  </div>
+</ng-template>

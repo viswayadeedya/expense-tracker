@@ -1,0 +1,14 @@
+  p-iftalabel input {
+    width: 100%;
+  }
+
+  ::ng-deep{
+    .input-fields{
+      div{
+        width: 100%;
+      }
+      div input{
+        width: 100%;
+      }
+    }
+  }

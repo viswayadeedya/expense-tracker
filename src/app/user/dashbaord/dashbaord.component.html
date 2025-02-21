@@ -1,0 +1,46 @@
+<!-- Charts -->
+<div class="grid gap-3" *ngIf="showChartsAndTable">
+  <div class="chart-container col-12" [hidden]="!pieChart">
+    <canvas id="PieChart">{{ pieChart }}</canvas>
+    <canvas id="BarChart">{{ barChart }}</canvas>
+  </div>
+  <p-table
+    [value]="expenses"
+    class="col-12"
+    [paginator]="true"
+    [rows]="5"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [tableStyle]="{ 'min-width': '50rem' }"
+  >
+    <ng-template #header>
+      <tr>
+        <th pSortableColumn="category">
+          Category <p-sortIcon field="category" />
+        </th>
+        <th pSortableColumn="description">
+          Description <p-sortIcon field="description" />
+        </th>
+        <th pSortableColumn="amount">Amount <p-sortIcon field="amount" /></th>
+        <th pSortableColumn="date">Date <p-sortIcon field="date" /></th>
+      </tr>
+    </ng-template>
+    <ng-template #body let-expense>
+      <tr>
+        <td>{{ expense.category | titlecase }}</td>
+        <td>{{ expense.description | titlecase }}</td>
+        <td>{{ expense.amount }}</td>
+        <td>{{ expense.date }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<div
+  class="flex justify-content-center ng-star-inserted text-2xl"
+  *ngIf="!showChartsAndTable"
+>
+  <p>You don't have any expenses please create one</p>
+</div>
+
+<app-add-expense></app-add-expense>
+<app-profile></app-profile>

@@ -1,0 +1,59 @@
+<p-dialog
+  header="Add Expense"
+  [modal]="true"
+  #dialog
+  [visible]="showUserProfileModal"
+  [closable]="false"
+  [style]="{ width: '40rem' }"
+>
+  <div class="grid p-4">
+    <p-iftalabel class="p-0 pb-4 pr-2 col-6">
+      <input
+        pInputText
+        [disabled]="disableEmail"
+        class="input-width"
+        [(ngModel)]="email"
+        autocomplete="off"
+      />
+      <label for="email">Email Id</label>
+    </p-iftalabel>
+
+    <p-iftalabel class="p-0 pb-4 col-6">
+      <input
+        pInputText
+        [disabled]="disableUsername"
+        class="input-width"
+        [(ngModel)]="username"
+        autocomplete="off"
+      />
+      <label for="username">Username</label>
+    </p-iftalabel>
+
+    <p-iftalabel class="p-0 pb-4 pr-2 col-6">
+      <input
+        pInputText
+        [disabled]="disableProfileName"
+        class="input-width"
+        [(ngModel)]="profileName"
+        autocomplete="off"
+      />
+      <label for="description">Profile Name</label>
+    </p-iftalabel>
+
+    <p-iftalabel class="p-0 pb-4 col-6">
+      <p-password
+        class="block password"
+        [disabled]="disablePassword"
+        [(ngModel)]="password"
+        [toggleMask]="true"
+        [feedback]="false"
+        inputId="password"
+      />
+      <label for="password">Password</label>
+    </p-iftalabel>
+  </div>
+  <div class="flex flex-row-reverse">
+    <p-button class="px-3" label="Cancel" (onClick)="closeDialog()" />
+    <p-button [label]="profileSaveLabel" (onClick)="updateUserProfile()" />
+  </div>
+</p-dialog>

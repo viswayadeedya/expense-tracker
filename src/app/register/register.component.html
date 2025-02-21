@@ -1,0 +1,73 @@
+<div class="center">
+  <div class="nav-home p-6">
+    <h3 class="flex justify-content-center pb-4 font-italic text-4xl">
+      Register
+    </h3>
+    <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+      <div class="grid">
+        <p-iftalabel class="p-0 pb-4 pr-3 col-6">
+          <input
+            pInputText
+            class="input-width"
+            formControlName="username"
+            autocomplete="off"
+          />
+          <label for="username">Username</label>
+        </p-iftalabel>
+        <p-iftalabel class="p-0 pb-4 col-6">
+          <input
+            pInputText
+            class="input-width"
+            formControlName="profileName"
+            autocomplete="off"
+          />
+          <label for="fullName">Profile Name</label>
+        </p-iftalabel>
+        <p-iftalabel class="p-0 pb-4 pr-3 col-6">
+          <input
+            pInputText
+            class="input-width"
+            formControlName="email"
+            autocomplete="off"
+          />
+          <label for="email">Email</label>
+        </p-iftalabel>
+        <p-iftalabel class="p-0 pb-4 col-6">
+          <p-password
+            class="block password"
+            formControlName="password"
+            [toggleMask]="true"
+            [feedback]="false"
+          />
+          <label for="password">Password</label>
+        </p-iftalabel>
+        <p-iftalabel class="p-0 pb-4 pr-3 col-6">
+          <p-password
+            class="block password"
+            formControlName="rePassword"
+            [toggleMask]="true"
+            [feedback]="false"
+          />
+          <label for="password">Reenter Password</label>
+        </p-iftalabel>
+      </div>
+      <div class="flex justify-content-center">
+        <p-button
+          type="submit"
+          label="Submit"
+          [disabled]="registerForm.invalid"
+        />
+      </div>
+    </form>
+    <p-message
+      class="flex justify-content-center pt-2"
+      severity="error"
+      variant="simple"
+      >{{ errorMessage }}</p-message
+    >
+    <div class="flex justify-content-center align-items-center">
+      <p class="">Registered User?</p>
+      <p-button [link]="true" label="Login here" (onClick)="getLoginScreen()" />
+    </div>
+  </div>
+</div>
